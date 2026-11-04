@@ -20,7 +20,7 @@ class Review {
 		$ehami_data_install = get_option( 'ehami_data_install', [] );
 
 		// Check if the condition is met before adding hooks.
-		if ( is_array( $ehami_data_install ) && strtotime( gmdate( 'Y-m-d' ) ) >= strtotime( $ehami_data_install['date'] ) ) {
+		if ( is_array( $ehami_data_install ) && isset( $ehami_data_install['date'] ) && strtotime( gmdate( 'Y-m-d' ) ) >= strtotime( $ehami_data_install['date'] ) ) {
 			add_action( 'admin_head', [ $this, 'add_admin_inline_style' ] );
 			add_action( 'admin_footer', [ $this, 'add_admin_footer_script' ] );
 			add_action( 'admin_notices', [ $this, 'admin_notice' ] );
@@ -59,6 +59,10 @@ class Review {
 				grid-template-columns: 1fr auto;
 				align-items: center;
 				gap: 5px;
+			}
+
+			.wp-core-ui .button.ehami_review__link .dashicons {
+				line-height: 1;
 			}
 		</style>
 		<?php
@@ -146,7 +150,7 @@ class Review {
 				<div>
 
 					<img class="ehami_review__img"
-					     src="https://ps.w.org/easy-hide-admin-menu-items/assets/icon-128x128.png" alt="">
+						src="https://ps.w.org/easy-hide-admin-menu-items/assets/icon-128x128.png" alt="">
 
 				</div>
 
@@ -184,8 +188,8 @@ class Review {
 						</a>
 
 						<a id="ehami_leave_feedback" class="button button-primary ehami_review__link"
-						   href="https://wordpress.org/support/plugin/easy-hide-admin-menu-items/reviews/#new-post"
-						   target="_blank">
+							href="https://wordpress.org/support/plugin/easy-hide-admin-menu-items/reviews/#new-post"
+							target="_blank">
 
 							<?php echo esc_html__( 'Leave feedback', 'ehami' ); ?>
 
@@ -232,7 +236,6 @@ class Review {
 	 */
 	public function leave_feedback_ajax_callback() {
 		$this->review_ajax_callback( 'feedback_submitted', '+5 years' );
-		wp_die();
 	}
 
 	/**
@@ -240,7 +243,6 @@ class Review {
 	 */
 	public function remind_ajax_callback() {
 		$this->review_ajax_callback( 'remind_submitted', '+1 days' );
-		wp_die();
 	}
 
 	/**
@@ -248,6 +250,5 @@ class Review {
 	 */
 	public function already_ajax_callback() {
 		$this->review_ajax_callback( 'already_submitted', '+4 years' );
-		wp_die();
 	}
 }

@@ -4,7 +4,7 @@ Donate link: #
 Tags: admin menu, hide menu, dashboard, customization menu
 Requires at least: 5.9.0
 Tested up to: 6.9
-Stable tag: 1.3.9
+Stable tag: 1.4.0
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -39,6 +39,14 @@ Key Features:
 * **User-Specific Settings:** Each user can customize their menu visibility individually.
 
 Enhance your WordPress admin panel experience by effortlessly managing menu items and optimizing the interface according to your specific needs. Experience a clutter-free and user-friendly environment with Easy Hide Admin Menu Items.
+
+### Experimental Features in 1.4.0
+
+These features are available under Appearance → Admin Menu Settings. They are marked as experimental and your feedback is welcome.
+
+* **Menu Sorting:** Drag-and-drop reordering of admin menu items. A handle icon appears on hover — grab it to move items up or down. Your custom order is saved per user or globally depending on your settings. Disabling this option preserves your saved order.
+* **Menu Separators:** Control the visibility of separator lines between menu groups. Choose to hide them completely or highlight them for better visual separation.
+* **Sidebar Width:** Resize the expanded desktop menu by dragging its edge or using the width slider. The standard folded and mobile layouts are preserved.
 
 == Frequently Asked Questions ==
 
@@ -75,12 +83,27 @@ You can install this plugin in two ways:
 
 == Screenshots ==
 
-1. Hide unnecessary main menus effortlessly with our plugin
-2. Activate child menu hiding
-3. Explore and customize your preferences with easy-to-use plugin settings
-4. Experience a user-friendly admin panel with our plugin's sleek design
+1. A cleaner WordPress admin menu with hidden entries available from the toolbar.
+2. Use the eye icon beside a main menu item to hide it.
+3. Hide a submenu entry without hiding its parent menu.
+4. Admin Menu Settings lets you switch between shared and personal preferences.
+5. Experimental sorting lets you reorder menu items by dragging their handles.
+6. Experimental sidebar resizing saves the width of the expanded desktop menu.
+7. Experimental separator controls highlight or hide the boundaries between menu groups.
 
 == Changelog ==
+
+= 1.4.0 =
+- Added experimental drag-and-drop sorting for the WordPress admin menu.
+- Added experimental sidebar resizing for the expanded desktop menu.
+- Added experimental controls to hide or highlight menu separators.
+- Added Slovak localization and updated Russian translations.
+- Restricted shared menu changes to users with the manage_options capability.
+- Kept personal menu visibility, order, and width separate between users.
+- Fixed saved sidebar widths overriding the folded and mobile layouts.
+- Aligned the icons in the review notice buttons.
+- Updated the WordPress.org gallery with seven screenshots.
+- Restored PHP 7.0 compatibility and corrected the review AJAX callbacks.
 
 = 1.3.9 =
 - Tested on WordPress 6.9.
